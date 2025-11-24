@@ -1,0 +1,438 @@
+/* ======== General Settings ======== */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+:root {
+    --primary-dark-blue: #0f172a; /* لون الأزرق الداكن الأساسي */
+    --primary-blue: #3b82f6;       /* لون الأزرق المميز (للبوتونات والروابط) */
+    --light-text: #f1f5f9;         
+    --dark-text: #333;             
+    --bg-light: #ffffff;
+    --bg-dark: var(--primary-dark-blue);
+    --border-color: #e2e8f0;
+
+    /* ألوان جديدة مستوحاة من الصورة الداكنة */
+    --dark-section-bg: #151a2d; /* أزرق داكن للخلفية في الصورة */
+    --dark-section-text: #e0e6ed; /* نص فاتح على الخلفية الداكنة */
+    --dark-section-card-bg: #212842; /* خلفية كارت أغمق قليلاً من الخلفية العامة */
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.7;
+    background-color: var(--bg-light);
+    color: var(--dark-text);
+}
+
+.container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+h1, h2, h3 { margin-bottom: 15px; font-weight: 700; }
+p { margin-bottom: 10px; }
+a { text-decoration: none; color: var(--primary-blue); }
+
+/* ======== Header & Navbar ======== */
+.navbar {
+    background-color: var(--bg-light);
+    border-bottom: 1px solid var(--border-color);
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+.navbar .container { display: flex; justify-content: space-between; align-items: center; }
+
+/* LOGO STYLES */
+.navbar .logo { display: flex; align-items: center; }
+.navbar .logo img { height: 110px; width: auto; }
+
+.navbar .nav-menu { display: flex; list-style: none; }
+.navbar .nav-menu li { margin-left: 20px; }
+.navbar .nav-menu li a { color: var(--dark-text); font-weight: 600; transition: color 0.3s ease; }
+.navbar .nav-menu li a:hover,
+.navbar .nav-menu li a.active { color: var(--primary-blue); }
+
+.hamburger { display: none; cursor: pointer; }
+.hamburger span { display: block; width: 25px; height: 3px; background-color: var(--dark-text); margin: 5px 0; transition: all 0.3s ease; }
+
+/* ======== Buttons ======== */
+.btn {
+    display: inline-block;
+    padding: 12px 25px;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s ease; 
+    cursor: pointer;
+}
+.btn-primary { background-color: var(--primary-blue); color: #fff; border: none; }
+.btn-primary:hover {
+    background-color: #2563eb;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+}
+
+/* ======== Hero Section & Placeholder Styles (Images) ======== */
+.hero { padding: 60px 0; text-align: center; }
+.hero h1 { font-size: 2.8rem; color: var(--primary-dark-blue); }
+.hero p { font-size: 1.2rem; max-width: 600px; margin: 0 auto 30px auto; }
+
+/* Hero Image Container */
+.hero .placeholder-text {
+    background: #eee;
+    color: #999;
+    padding: 0; 
+    border-radius: 10px;
+    margin: 20px auto;
+    max-width: 70%;
+    font-style: italic;
+    border: 2px dashed #ccc;
+    position: relative; 
+    overflow: hidden; 
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+    height: 300px;
+}
+
+/* Image inside Hero Container */
+.hero .placeholder-text img {
+    width: 100%;
+    height: 100%;
+    /* object-fit: cover; */
+    border-radius: 10px; 
+    display: block; 
+}
+
+/* Small Placeholder Container (Client Logo/Photo) */
+.placeholder-text.small {
+    padding: 0;
+    max-width: 120px; 
+    height: 120px;
+    margin: 0 auto 20px auto; 
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: 2px dashed #ccc;
+}
+.placeholder-text.small img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%; 
+    display: block;
+}
+
+
+/* ======== Stats Section ======== */
+.stats { background-color: #f8fafc; padding: 40px 0; border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color); }
+.stats .container { display: flex; justify-content: space-around; text-align: center; flex-wrap: wrap; }
+.stat-item { flex-basis: 23%; }
+.stat-item h3 { font-size: 2.5rem; color: var(--primary-blue); margin-bottom: 5px; }
+.stat-item p { font-weight: 600; color: #555; }
+
+/* ======== Services Section ======== */
+.services { padding: 60px 0; text-align: center; }
+.services h2 { font-size: 2.2rem; margin-bottom: 40px; color: var(--primary-dark-blue); }
+.services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; text-align: left; }
+.service-card { background: #fff; border: 1px solid var(--border-color); border-radius: 10px; padding: 25px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); transition: all 0.3s ease; }
+.service-card h3 { margin-top: 10px; color: var(--primary-dark-blue); }
+.service-card:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0,0,0,0.08); }
+
+
+/* ======== Dark Sections (Testimonials) ======== */
+.dark-section { 
+    background-color: var(--dark-section-bg); 
+    color: var(--dark-section-text); 
+    padding: 60px 0; 
+}
+.dark-section h2, .dark-section h3 { 
+    color: var(--dark-section-text); /* للتأكد من أن النص فاتح */
+}
+.dark-section a {
+    color: var(--primary-blue); /* الروابط بلون أزرق مميز */
+}
+.dark-section .container { text-align: center; }
+.testimonials blockquote { font-size: 1.4rem; font-style: italic; max-width: 700px; margin: 20px auto; line-height: 1.8; }
+.testimonials cite { font-weight: 600; color: var(--primary-blue); }
+
+/* ======== About Me Page ======== */
+.about-me { padding: 40px 0; }
+.about-content { display: flex; gap: 30px; align-items: center; flex-wrap: wrap; }
+.about-text { flex: 2; }
+.about-image { flex: 1; }
+
+/* Image inside About Container */
+.about-image .placeholder-text {
+    width: 100%;
+    min-height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #eee;
+    color: #999;
+    padding: 0; 
+    border-radius: 10px;
+    font-style: italic;
+    border: 2px dashed #ccc;
+    position: relative;
+    overflow: hidden;
+}
+.about-image .placeholder-text img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    display: block;
+}
+
+
+.my-mission { padding: 30px; text-align: left; }
+.my-mission hr { border: 0; height: 1px; background: #475569; margin: 20px 0; }
+
+
+/* ======== Contact Page (New Styles) ======== */
+
+/* contact-hero: الجزء العلوي الداكن */
+.contact-hero {
+    padding: 80px 0; 
+    text-align: center;
+}
+.contact-hero .contact-header h2 {
+    font-size: 3rem; 
+    margin-bottom: 20px;
+}
+.contact-hero .contact-header p {
+    font-size: 1.2rem;
+    max-width: 700px;
+    margin: 0 auto 40px auto;
+    line-height: 1.6;
+}
+
+/* WhatsApp Action Box - adapted for dark background */
+.action-box {
+    text-align: center;
+    padding: 30px;
+    border-radius: 12px;
+    margin: 0 auto 40px auto; 
+    max-width: 500px; 
+    background-color: var(--dark-section-card-bg); /* لون خلفية بطاقة أغمق */
+    border: 2px solid rgba(255, 255, 255, 0.1); 
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); 
+    transition: all 0.3s ease;
+}
+.action-box h3, .action-box p {
+    color: var(--dark-section-text); /* نص فاتح */
+}
+.whatsapp-box {
+    background-color: var(--dark-section-card-bg); 
+    border-color: rgba(37, 211, 102, 0.5); 
+}
+
+.btn-whatsapp {
+    display: inline-block;
+    background-color: #25D366; 
+    color: white;
+    font-size: 1.2rem;
+    font-weight: 700;
+    padding: 15px 35px;
+    margin-top: 15px;
+    border-radius: 50px; 
+    transition: all 0.3s ease;
+}
+.btn-whatsapp:hover {
+    background-color: #1DA851;
+    transform: scale(1.05); 
+    box-shadow: 0 8px 25px rgba(37, 211, 102, 0.5);
+}
+.whatsapp-box h3 .fa-whatsapp { 
+    color: #25D366; /* لون أيقونة الواتساب في العنوان */
+}
+
+
+/* Contact Cards Grid Section (White Background) */
+.contact-grid-section {
+    padding: 60px 0;
+    background-color: var(--bg-light); /* خلفية بيضاء لهذا القسم */
+}
+.contact-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+    margin-bottom: 50px;
+}
+
+/* Contact Card (White background) */
+.contact-card {
+    background: #fff;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    border: 1px solid #eee;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-card:hover {
+    transform: translateY(-5px); 
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+.contact-card .icon {
+    display: block;
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+.contact-card h3 {
+    color: var(--primary-dark-blue);
+    margin-bottom: 8px;
+}
+
+.contact-card p {
+    color: #666;
+    font-size: 0.95rem;
+    margin-bottom: 15px;
+}
+
+.card-link {
+    font-weight: 600;
+    text-decoration: underline;
+}
+
+/* Card Specific Colors (using Font Awesome classes) */
+.card-linkedin .icon { color: #0077b5; }
+.card-facebook .icon { color: #1877F2; }
+.card-email .icon { color: var(--primary-blue); }
+
+
+/* FAQ/Accordion Styles */
+.faq-section {
+    padding: 60px 0;
+    background-color: var(--bg-light); /* خلفية بيضاء */
+}
+.faq-section h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: var(--primary-dark-blue);
+}
+.accordion-item {
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    margin-bottom: 15px;
+    overflow: hidden; 
+}
+.accordion-header {
+    width: 100%;
+    padding: 18px 20px;
+    background-color: #f8faff;
+    color: var(--dark-text);
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-align: right;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.3s ease;
+}
+.accordion-header:hover {
+    background-color: #eef2ff;
+}
+.accordion-item.active .accordion-header {
+    background-color: var(--primary-blue);
+    color: white;
+}
+.accordion-item.active .accordion-header:hover {
+    background-color: #2563eb;
+}
+
+.indicator {
+    font-size: 1.5rem;
+    line-height: 1;
+    font-weight: 400;
+    margin-right: 10px;
+    transition: transform 0.3s ease;
+}
+.accordion-item.active .indicator {
+    transform: rotate(45deg); 
+}
+
+.accordion-content {
+    background-color: white;
+    padding: 0 20px;
+    max-height: 0; 
+    transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+}
+.accordion-content p {
+    padding: 15px 0;
+    border-top: 1px solid #eee;
+    margin-bottom: 0;
+}
+.accordion-item.active .accordion-content {
+    max-height: 500px; 
+    padding: 0 20px 20px 20px;
+}
+/* END Contact Page Styles */
+
+
+/* ======== Footer ======== */
+footer { background-color: #f8fafc; border-top: 1px solid var(--border-color); text-align: center; padding: 25px 0; margin-top: 40px; color: #777; }
+footer .social-links a { margin: 0 10px; font-weight: 600; }
+
+
+/* ======== Scroll Animation Classes ======== */
+.animate-on-scroll { opacity: 0; transform: translateY(30px); transition: all 0.6s ease-out; }
+.animate-on-scroll.is-visible { opacity: 1; transform: translateY(0); }
+
+
+/* ======== Responsive Design ======== */
+@media (max-width: 768px) {
+    .navbar .nav-menu { 
+        display: none; 
+        position: absolute; 
+        top: 115px; 
+        left: 0; 
+        width: 100%; 
+        background-color: var(--bg-light); 
+        flex-direction: column; 
+        text-align: center; 
+        border-bottom: 1px solid var(--border-color); 
+    }
+    .navbar .nav-menu.active { display: flex; }
+    .navbar .nav-menu li { margin: 0; }
+    .navbar .nav-menu li a { display: block; padding: 15px; border-bottom: 1px solid #f0f0f0; }
+    .hamburger { display: block; }
+    
+    .stats .container { flex-direction: column; gap: 20px; }
+    .about-content { flex-direction: column; }
+    .about-image { order: -1; }
+    /* Social buttons removed as they are now cards */
+    
+    /* Adjust hero image container height on small screens */
+    .hero .placeholder-text {
+        height: 250px;
+    }
+
+    /* Contact page specific responsive adjustments */
+    .contact-hero {
+        padding: 60px 0;
+    }
+    .contact-hero .contact-header h2 {
+        font-size: 2.2rem;
+    }
+    .contact-hero .contact-header p {
+        font-size: 1rem;
+    }
+    .btn-whatsapp {
+        font-size: 1.1rem;
+        padding: 12px 25px;
+    }
+}
+
